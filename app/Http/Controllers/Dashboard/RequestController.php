@@ -14,7 +14,7 @@ class RequestController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.Dashboard.request.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class RequestController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.Dashboard.request.detail');
     }
 
     /**
@@ -87,4 +87,5 @@ class RequestController extends Controller
     {
         //
     }
+
 }
