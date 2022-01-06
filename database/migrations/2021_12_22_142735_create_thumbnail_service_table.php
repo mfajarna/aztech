@@ -17,6 +17,8 @@ class CreateThumbnailServiceTable extends Migration
             $table->id();
             $table->foreignId('service_id')->nullable()->index('fk_thumbnail_service_to_service');
             $table->longText('thumbnail');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

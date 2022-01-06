@@ -34,7 +34,7 @@ class UpdateDetailUserRequest extends FormRequest
             'contact_number' => [
                 'required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:12'
             ],
-            'role' => [
+            'biography' => [
                 'nullable', 'string', 'max:5000'
             ],
         ];

@@ -46,7 +46,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -57,7 +57,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -68,7 +68,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -79,7 +79,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -100,14 +100,14 @@ class ProfileController extends Controller
         // delete old file from storage
         if(isset($data_detail_user['photo']))
         {
-            $data = 'storage/' . $get_photo('photo');
+            $data = 'storage/' . $get_photo['photo'];
 
             if(File::exists($data))
             {
                 File::delete($data);
             }else
             {
-                File::delete('storage/app/public' . $get_photo['photo']);
+                File::delete('storage/app/public/' . $get_photo['photo']);
             }
         }
 
@@ -160,10 +160,10 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return abort(404);
     }
 
-    public function delete($id)
+    public function delete()
     {
         $get_user_photo = DetailUser::where('users_id', Auth::user()->id)->first();
         $path_photo = $get_user_photo['photo'];
@@ -173,9 +173,9 @@ class ProfileController extends Controller
         $data->save();
 
         $data = 'storage/' . $path_photo;
-        if(File::exist($data))
+        if(File::exists($data))
         {
-            File::delete();
+            File::delete($data);
         }else{
             File::delete('storage/app/public/' . $path_photo);
         }
